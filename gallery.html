@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | HK Engimech - Industrial Packaging Solutions</title>
+    <meta name="description" content="Browse the gallery of HK Engimech's industrial packaging products — wooden pallets, corrugated boxes, shrink wrapping, cord straps, and more.">
+
+    <link rel="icon" href="images/Fevicon.png" type="image/png" fetchpriority="low">
+    <link rel="preload" as="image" href="images/BrandLogo.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/banner1.webp" fetchpriority="high">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- LightGallery CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" />
+
+    <style>
+        /* Reusing Banner Animations */
+        @keyframes bannerSlideLeft {
+            0% { opacity: 0; transform: translateX(-100px); filter: blur(10px); }
+            100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+        @keyframes bannerFadeUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .slide-anim { opacity: 0; will-change: transform, opacity, filter; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+        .slide-anim-play { animation-play-state: running; }
+        .slide-anim-1 { animation-name: bannerFadeUp; animation-duration: 1s; animation-delay: 0.1s; }
+        .slide-anim-2 { animation-name: bannerFadeUp; animation-duration: 1.2s; animation-delay: 0.2s; }
+
+        /* Inner Page Banner Constraint */
+        .inner-page-banner {
+            padding: 160px 0 100px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* ═══════════════════════════════════════
+           GALLERY STYLES
+        ═══════════════════════════════════════ */
+
+        /* Filter Tabs */
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+        .gallery-filter-btn {
+            padding: 10px 26px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: -1;
+        }
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.35);
+        }
+        .gallery-filter-btn:hover::before,
+        .gallery-filter-btn.active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Gallery Grid */
+        #gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Gallery Item */
+        .gallery-item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            aspect-ratio: 1 / 1;
+            background: var(--white);
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(139, 115, 85, 0.22);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay */
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 30%,
+                rgba(26, 26, 29, 0.85) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay-title {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+        }
+        .gallery-overlay-cat {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(10px);
+            transition: transform 0.4s ease 0.05s;
+        }
+        .gallery-item:hover .gallery-overlay-title,
+        .gallery-item:hover .gallery-overlay-cat {
+            transform: translateY(0);
+        }
+
+        /* Zoom icon */
+        .gallery-zoom-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            background: rgba(139, 115, 85, 0.9);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-item:hover .gallery-zoom-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Featured items (first and every 7th) span 2 cols */
+        .gallery-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* LightGallery overrides to match brand */
+        .lg-backdrop {
+            background-color: rgba(26, 26, 29, 0.95) !important;
+        }
+        .lg-toolbar .lg-icon,
+        .lg-actions .lg-icon {
+            color: #fff !important;
+        }
+        .lg-toolbar .lg-icon:hover,
+        .lg-actions .lg-icon:hover {
+            color: var(--primary) !important;
+        }
+        .lg-outer .lg-thumb-item.active,
+        .lg-outer .lg-thumb-item:hover {
+            border-color: var(--primary) !important;
+        }
+        .lg-progress-bar .lg-progress {
+            background-color: var(--primary) !important;
+        }
+
+        /* Item show/hide animation */
+        .gallery-item {
+            animation: galleryFadeIn 0.5s ease both;
+        }
+        .gallery-item.hide {
+            display: none !important;
+        }
+        @keyframes galleryFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            #gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+        @media (max-width: 767px) {
+            #gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 16/9;
+            }
+            .gallery-filter-btn {
+                padding: 8px 18px;
+                font-size: 0.78rem;
+            }
+            .gallery-overlay {
+                padding: 16px;
+            }
+            .gallery-overlay-title {
+                font-size: 0.85rem;
+            }
+        }
+        @media (max-width: 480px) {
+            #gallery-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+      <div class="wrapheder">
+        <div id="header">
+          <div class="miniHeader d-none d-lg-block">
+            <div class="container">
+              <div class="row">
+                <div class="col-auto topheadSocial">
+                  <a class="brandLogo d-none d-lg-inline-block" href="index.html">
+                    <img loading="eager" src="images/BrandLogo.webp" alt="HK Engimech">
+                  </a>
+                </div>
+                <div class="col-auto topheadContacts">
+                  <div class="cantactCardTop">
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity="0" d="M12 11l-8 -5h16l-8 5Z"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.15s" values="0;0.3"/></path><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"><path stroke-dasharray="64" stroke-dashoffset="64" d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M3 6.5l9 5.5l9 -5.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="24;0"/></path></g></svg>
+                    </div>
+                    <div class="infoBox ">
+                      <h3 class="fifthH">Email</h3>
+                      <p>your@email.com</p>
+                    </div>
+                    <a href="mailto:your@email.com" class="absAnchor"></a>
+                  </div>
+                  <div class="cantactCardTop">
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"><path stroke-dasharray="64" stroke-dashoffset="64" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/><animateTransform id="lineMdPhoneCallLoop0" fill="freeze" attributeName="transform" begin="0.6s;lineMdPhoneCallLoop0.begin+2.7s" dur="0.5s" type="rotate" values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12"/></path><path stroke-dasharray="4" stroke-dashoffset="4" d="M15.76 8.28c-0.5 -0.51 -1.1 -0.93 -1.76 -1.24M15.76 8.28c0.49 0.49 0.9 1.08 1.2 1.72"><animate fill="freeze" attributeName="stroke-dashoffset" begin="lineMdPhoneCallLoop0.begin+0s" dur="2.7s" keyTimes="0;0.111;0.259;0.37;1" values="4;0;0;4;4"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M18.67 5.35c-1 -1 -2.26 -1.73 -3.67 -2.1M18.67 5.35c0.99 1 1.72 2.25 2.08 3.65"><animate fill="freeze" attributeName="stroke-dashoffset" begin="lineMdPhoneCallLoop0.begin+0.2s" dur="2.7s" keyTimes="0;0.074;0.185;0.333;0.444;1" values="6;6;0;0;6;6"/></path></g></svg>
+                    </div>
+                    <div class="infoBox ">
+                      <h3 class="fifthH">Phone Number</h3>
+                      <p>+91 804 491 9276</p>
+                    </div>
+                    <a href="tel:+918044919276" class="absAnchor"></a>
+                  </div>
+                  <div class="cantactCardTop">
+                    <div class="iconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path fill="currentColor" d="M19 20a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-8 6.5a1.5 1.5 0 0 1 1.5-1.5h7a1.5 1.5 0 0 1 1.5 1.5v.5s0 4-5 4s-5-4-5-4zm14-6.25c0-.69.56-1.25 1.25-1.25h9.5a1.25 1.25 0 1 1 0 2.5h-9.5c-.69 0-1.25-.56-1.25-1.25M26.25 26a1.25 1.25 0 1 0 0 2.5h9.5a1.25 1.25 0 1 0 0-2.5zM4 12.25A4.25 4.25 0 0 1 8.25 8h31.5A4.25 4.25 0 0 1 44 12.25v23.5A4.25 4.25 0 0 1 39.75 40H8.25A4.25 4.25 0 0 1 4 35.75zm4.25-1.75a1.75 1.75 0 0 0-1.75 1.75v23.5c0 .967.784 1.75 1.75 1.75h31.5a1.75 1.75 0 0 0 1.75-1.75v-23.5a1.75 1.75 0 0 0-1.75-1.75z" stroke-width="0.4" stroke="currentColor"/></svg>
+                    </div>
+                    <div class="infoBox ">
+                      <h3 class="fifthH">Connect<br/>With Us</h3>
+                    </div>
+                    <a href="contactUs.html" class="absAnchor"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="main-header">
+            <nav class="mynavbar bg-light">
+              <div class="container header">
+                <a class="brandLogo d-lg-none" href="index.html">
+                  <img loading="eager" src="images/BrandLogo.webp" alt="HK Engimech">
+                </a>
+                <button class="navToggle">
+                  <span class="iconify" data-icon="uis:bars"></span>
+                </button>
+                <ul class="navMenu mx-auto ms-lg-0 mb-2 mb-lg-0">
+                  <li class="nav-close">
+                    <button class="btn-nav-close"><span class="close-btn">+</span></button>
+                  </li>
+                  <li class="navLi"><a class="navLink" href="index.html">Home</a></li>
+                  <li class="navLi"><a href="about.html" class="navLink">About</a></li>
+                  <li class="navLi"><a href="products.html" class="navLink">Products</a></li>
+                  <li class="navLi has-mega-menu">
+                    <a href="services.html" class="navLink">Services <span class="mega-toggle-arrow">▼</span></a>
+                    <div class="mega-dropdown">
+                      <div class="mega-dropdown-grid" id="megaMenuGrid"></div>
+                    </div>
+                    <ul class="mega-dropdown-mobile" id="megaMenuMobile"></ul>
+                  </li>
+                  <li class="navLi"><a href="gallery.html" class="navLink">Gallery</a></li>
+                  <li class="navLi"><a href="contactUs.html" class="navLink">Contact</a></li>
+                </ul>
+                <div class="col-auto topheadSocial d-none d-lg-block">
+                  <a target="_blank" href="https://www.facebook.com/">
+                    <span class="iconify" data-icon="ri:facebook-fill"></span>
+                  </a>
+                  <a target="_blank" href="https://www.instagram.com/">
+                    <span class="iconify" data-icon="dashicons:instagram"></span>
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ INNER PAGE BANNER ═══ -->
+    <section id="headBelowContent" class="position-relative inner-page-banner" style="background-image: url('images/banner2.webp');">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative z-index-2 text-center text-white">
+            <h1 class="display-3 fw-bold slide-anim slide-anim-1 slide-anim-play mb-3">Our Gallery</h1>
+            <p class="lead slide-anim slide-anim-2 slide-anim-play maxPara">Explore our range of premium industrial packaging solutions — from wooden pallets to shrink wrapping services.</p>
+        </div>
+    </section>
+
+    <!-- ═══ GALLERY SECTION ═══ -->
+    <section class="section-padding bg-pattern-grid" id="gallery-section">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h5 class="text-primary fw-bold text-uppercase mb-2">Our Work</h5>
+                <h2 class="section-title">Product Gallery</h2>
+                <p class="text-muted mt-4 maxPara">A glimpse of our premium quality industrial packaging products and services delivered to satisfied clients across India.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filters" data-aos="fade-up" data-aos-delay="100">
+                <button class="gallery-filter-btn active" data-filter="all" id="filter-all">All</button>
+                <button class="gallery-filter-btn" data-filter="films" id="filter-films">Films & Wraps</button>
+                <button class="gallery-filter-btn" data-filter="tapes" id="filter-tapes">Tapes & Straps</button>
+                <button class="gallery-filter-btn" data-filter="boxes" id="filter-boxes">Boxes & Packaging</button>
+                <button class="gallery-filter-btn" data-filter="foam" id="filter-foam">Foam & Protection</button>
+                <button class="gallery-filter-btn" data-filter="services" id="filter-services">Services</button>
+            </div>
+
+            <!-- Gallery Grid (LightGallery) -->
+            <div id="gallery-container" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- 1. Shrink Film — FEATURED -->
+                <a href="images/product1.jpg" class="gallery-item featured" data-category="films" data-sub-html="<h4>Shrink Film</h4><p>PVC Shrink Film Roll for industrial packaging applications</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product1.webp" alt="Shrink Film Roll">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Shrink Film</span>
+                        <span class="gallery-overlay-cat">Films & Wraps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 2. Masking Tape -->
+                <a href="images/product2.jpg" class="gallery-item" data-category="tapes" data-sub-html="<h4>Masking Tape</h4><p>20 Meter Plain Masking Tape for painting and packaging</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product2.webp" alt="Masking Tape">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Masking Tape</span>
+                        <span class="gallery-overlay-cat">Tapes & Straps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 3. Cord Strap -->
+                <a href="images/product3.jpg" class="gallery-item" data-category="tapes" data-sub-html="<h4>Cord Strap</h4><p>19mm Polyester Cord Strap for secure bundling and palletizing</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product3.webp" alt="Cord Strap">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Cord Strap</span>
+                        <span class="gallery-overlay-cat">Tapes & Straps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 4. Corrugated Packaging Boxes -->
+                <a href="images/product4.jpg" class="gallery-item" data-category="boxes" data-sub-html="<h4>Corrugated Packaging Boxes</h4><p>Brown corrugated cardboard boxes for secure packaging</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product4.webp" alt="Corrugated Packaging Boxes">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Corrugated Boxes</span>
+                        <span class="gallery-overlay-cat">Boxes & Packaging</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 5. EPE Foam Roll -->
+                <a href="images/product5.jpg" class="gallery-item" data-category="foam" data-sub-html="<h4>EPE Foam Roll</h4><p>Expanded Polyethylene foam for protective packaging</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product5.webp" alt="EPE Foam Roll">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">EPE Foam Roll</span>
+                        <span class="gallery-overlay-cat">Foam & Protection</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 6. Stretch Film Roll — FEATURED -->
+                <a href="images/product6.jpg" class="gallery-item featured" data-category="films" data-sub-html="<h4>Stretch Film Roll</h4><p>300mm flexible wrapping solution for securing goods</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/product6.webp" alt="Stretch Film Roll">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Stretch Film Roll</span>
+                        <span class="gallery-overlay-cat">Films & Wraps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 7. Pallet Shrink Wrapping -->
+                <a href="images/Shrink-Wrapping--Pallet-Shrink-Wrapping.png" class="gallery-item" data-category="services" data-sub-html="<h4>Pallet Shrink Wrapping</h4><p>Professional pallet shrink wrapping for safe transit</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Pallet-Shrink-Wrapping.png" alt="Pallet Shrink Wrapping">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Pallet Wrapping</span>
+                        <span class="gallery-overlay-cat">Services</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 8. Heat Shrink Packaging -->
+                <a href="images/Shrink-Wrapping--Heat-Shrink-Packaging.png" class="gallery-item" data-category="services" data-sub-html="<h4>Heat Shrink Packaging</h4><p>Industrial heat shrink packaging for machinery and goods</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Heat-Shrink-Packaging.png" alt="Heat Shrink Packaging">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Heat Shrink</span>
+                        <span class="gallery-overlay-cat">Services</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 9. Export Packing Covers -->
+                <a href="images/Shrink-Wrapping--Export-Packing-Covers.png" class="gallery-item" data-category="services" data-sub-html="<h4>Export Packing Covers</h4><p>Heavy-duty covers for export cargo protection</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Export-Packing-Covers.png" alt="Export Packing Covers">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Export Covers</span>
+                        <span class="gallery-overlay-cat">Services</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 10. Machine Shrink Covers -->
+                <a href="images/Shrink-Wrapping--Machine-Shrink-Covers.png" class="gallery-item" data-category="services" data-sub-html="<h4>Machine Shrink Covers</h4><p>Custom shrink covers crafted for industrial machinery</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Machine-Shrink-Covers.png" alt="Machine Shrink Covers">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Machine Covers</span>
+                        <span class="gallery-overlay-cat">Services</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 11. Heavy Duty Shrink Covers  -->
+                <a href="images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.png" class="gallery-item" data-category="films" data-sub-html="<h4>Heavy Duty Shrink Covers</h4><p>Premium grade shrink covers for heavy-duty applications</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.png" alt="Heavy Duty Shrink Covers">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Heavy Duty Covers</span>
+                        <span class="gallery-overlay-cat">Films & Wraps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 12. UV Protected Shrink -->
+                <a href="images/Shrink-Wrapping--UV-Protected-Shrink.png" class="gallery-item" data-category="films" data-sub-html="<h4>UV Protected Shrink</h4><p>UV-resistant shrink wrap for outdoor storage protection</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--UV-Protected-Shrink.png" alt="UV Protected Shrink">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">UV Protected</span>
+                        <span class="gallery-overlay-cat">Films & Wraps</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+                <!-- 13. Weatherproof Covers -->
+                <a href="images/Shrink-Wrapping--Weatherproof-Covers.png" class="gallery-item" data-category="services" data-sub-html="<h4>Weatherproof Covers</h4><p>All-weather protection covers for outdoor equipment</p>" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/Shrink-Wrapping--Weatherproof-Covers.png" alt="Weatherproof Covers">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-title">Weatherproof Covers</span>
+                        <span class="gallery-overlay-cat">Services</span>
+                    </div>
+                    <div class="gallery-zoom-icon">
+                        <span class="iconify" data-icon="mdi:magnify-plus-outline"></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA SECTION ═══ -->
+    <section class="section-padding bg-trust-pattern border-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <h2 class="display-5 fw-bold mb-4 text-dark">Need Custom Packaging?</h2>
+                    <p class="lead text-muted mb-5">Get in touch with us today for customised packaging solutions tailored to your industry needs. We deliver quality, on time, every time.</p>
+
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contactUs.html" class="btn-custom bigTxt px-sm-3 px-2 py-3">
+                            Request a Quote <span class="iconify" data-icon="heroicons:arrow-right-16-solid"></span>
+                        </a>
+                        <a rel="noopener" data-mobile-target="" data-desktop-target="_blank" href="https://api.whatsapp.com/send?phone=918044919276" target="_blank" class="btn-custom bg-success border-success bigTxt px-sm-4 px-3 py-3 set-url-target">
+                            Chat on WhatsApp <span class="iconify" data-icon="logos:whatsapp-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mainFabContainer"></div>
+
+    <footer id="footer" class="footer homePage0"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- LightGallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/fullscreen/lg-fullscreen.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ once: true, duration: 800, offset: 50 });
+
+        // ═══ LightGallery Initialization ═══
+        let lgInstance = null;
+
+        function initLightGallery() {
+            // Destroy previous instance
+            if (lgInstance) {
+                lgInstance.destroy();
+                lgInstance = null;
+            }
+
+            const container = document.getElementById('gallery-container');
+            // Get only visible (not hidden) items
+            const visibleItems = container.querySelectorAll('.gallery-item:not(.hide)');
+
+            lgInstance = lightGallery(container, {
+                plugins: [lgZoom, lgThumbnail, lgFullscreen],
+                selector: '.gallery-item:not(.hide)',
+                speed: 500,
+                backdropDuration: 300,
+                download: false,
+                counter: true,
+                hideControlOnEnd: true,
+                loop: true,
+                thumbnail: true,
+                animateThumb: true,
+                thumbWidth: 100,
+                thumbHeight: '80px',
+                zoomFromOrigin: true,
+                toggleThumb: true,
+                allowMediaOverlap: false,
+                addClass: 'lg-hk-custom',
+                mobileSettings: {
+                    controls: true,
+                    showCloseIcon: true,
+                    download: false
+                }
+            });
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function () {
+            initLightGallery();
+        });
+
+        // ═══ FILTER FUNCTIONALITY ═══
+        (function () {
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const items = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // Animate items
+                    items.forEach((item, index) => {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            item.classList.remove('hide');
+                            item.style.animationDelay = `${index * 0.05}s`;
+                        } else {
+                            item.classList.add('hide');
+                        }
+                    });
+
+                    // Reinitialize LightGallery after filter change
+                    setTimeout(() => {
+                        initLightGallery();
+                    }, 100);
+                });
+            });
+        })();
+    </script>
+
+    <script defer src="js/script.js"></script>
+</body>
+</html>
