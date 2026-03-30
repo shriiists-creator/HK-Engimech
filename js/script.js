@@ -67,7 +67,9 @@ function loadHeaderFooter(callback) {
                     <span class="iconify" data-icon="fluent:location-12-filled"></span>
                     <A1-TF-25>
 <pre class="mb-0">
-FF/3 , J Tower, Aashray Residency, Oop. - Din dayal Upadhyay School, TP-13, Chhani Jakatnaka</pre>
+FF/3 , J Tower, Aashray Residency,
+Oop. - Din dayal Upadhyay School,
+TP-13, Chhani Jakatnaka</pre>
                   </a>
                 </li>
                 <li>
