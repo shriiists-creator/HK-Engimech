@@ -63,7 +63,7 @@ function loadHeaderFooter(callback) {
               <h5 class="fourthH ">Contact Us</h5>
               <ul class="contact-info">
                 <li>
-                  <a class="locationLink footerLinks" target="_blank" href="https://maps.app.goo.gl/359MgQEPajWTFKhL9">
+                  <a class="locationLink footerLinks" target="_blank" href=" ">
                     <span class="iconify" data-icon="fluent:location-12-filled"></span>
                     <A1-TF-25>
 <pre class="mb-0">

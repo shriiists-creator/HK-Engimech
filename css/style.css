@@ -1586,3 +1586,10 @@ address{
             .section-padding { padding: 50px 0; }
             .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
         }
+        .lg-backdrop{
+          z-index: 1057 !important;
+        }
+
+        .lg-outer{
+          z-index: 1058 !important;
+        }
