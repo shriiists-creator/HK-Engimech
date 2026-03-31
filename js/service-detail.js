@@ -11,6 +11,41 @@
   const DATA_PATH = 'data/services-data.json';
   const WHATSAPP_NUMBER = '919099828992';
 
+  // ── WhatsApp Responsive Logic & Debounce ───────
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => { clearTimeout(timeout); func(...args); };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  let whatsappBaseUrl = '';
+  function updateWhatsAppUrl() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 992;
+    const newBaseUrl = isMobile ? 'https://api.whatsapp.com/send' : 'https://web.whatsapp.com/send';
+    
+    if (whatsappBaseUrl !== newBaseUrl) {
+      whatsappBaseUrl = newBaseUrl;
+      // Also update existing links when URL changes
+      document.querySelectorAll('.set-url-target').forEach(link => {
+        if (link.href && link.href.includes('whatsapp.com')) {
+          try {
+            const urlObj = new URL(link.href);
+            // Re-apply using the new base, retaining params
+            link.href = `${whatsappBaseUrl}${urlObj.search}`;
+          } catch (e) {
+            console.error('Error parsing WhatsApp link:', e);
+          }
+        }
+      });
+    }
+  }
+
+  updateWhatsAppUrl();
+  window.addEventListener('resize', debounce(updateWhatsAppUrl, 250));
+
   // ── Get URL params ───────────────────────────
   function getParam(key) {
     return new URLSearchParams(window.location.search).get(key);
@@ -38,7 +73,7 @@
         `📦 *Product:* ${item.name}\n` +
         `📂 *Sub-Service:* ${subServiceName}\n` +
         `🏷️ *Service:* ${serviceName}`;
-      const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
+      const waUrl = `${whatsappBaseUrl}?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
 
       enquiryHtml = `
         <a href="${waUrl}" target="_blank" rel="noopener" class="svc-enquiry-btn set-url-target">
@@ -255,7 +290,7 @@
       const whatsappLink = document.querySelector('#svcSectionInfo .set-url-target');
       if (whatsappLink) {
         const msg = `Hi HK Engimech, I would like to inquire about your *${sub.name}* service.`;
-        whatsappLink.href = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
+        whatsappLink.href = `${whatsappBaseUrl}?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
       }
 
       // ── SECTION 2: Sub-Categories ──
