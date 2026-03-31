@@ -1068,7 +1068,6 @@ address{
             pointer-events: none;
             list-style: none;
         }
-        .navLi.has-mega-menu:hover .mega-dropdown,
         .navLi.has-mega-menu.mega-open .mega-dropdown {
             opacity: 1;
             visibility: visible;
