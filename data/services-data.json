@@ -12,39 +12,39 @@
           "subcategories": [
             {
               "name": "Heat Shrink Packaging",
-              "image": "images/Shrink-Wrapping--Heat-Shrink-Packaging.png",
+              "image": "images/Shrink-Wrapping--Heat-Shrink-Packaging.webp",
               "description": "High-temperature polyolefin shrink film packaging for secure, tamper-proof industrial wrapping of components and machinery."
             },
             {
               "name": "UV Protected Shrink",
-              "image": "images/Shrink-Wrapping--UV-Protected-Shrink.png",
+              "image": "images/Shrink-Wrapping--UV-Protected-Shrink.webp",
               "description": "UV-stabilized shrink wrapping designed for outdoor storage and long-distance open cargo transit under direct sunlight."
             },
             {
               "name": "Heavy Duty Shrink Covers",
-              "image": "images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.png",
+              "image": "images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.webp",
               "description": "Extra-thick 300GSM shrink covers engineered for oversized machinery, transformers, and heavy industrial equipment."
             }
           ],
           "endProducts": [
             {
               "name": "Machine Shrink Covers",
-              "image": "images/Shrink-Wrapping--Machine-Shrink-Covers.png",
+              "image": "images/Shrink-Wrapping--Machine-Shrink-Covers.webp",
               "description": "Custom-fit heat shrink covers tailored to protect CNC machines, generators, and factory equipment during storage and transit."
             },
             {
               "name": "Pallet Shrink Wrapping",
-              "image": "images/Shrink-Wrapping--Pallet-Shrink-Wrapping.png",
+              "image": "images/Shrink-Wrapping--Pallet-Shrink-Wrapping.webp",
               "description": "Complete pallet-level shrink wrapping service ensuring load stability and weather protection for palletized shipments."
             },
             {
               "name": "Export Packing Covers",
-              "image": "images/Shrink-Wrapping--Export-Packing-Covers.png",
+              "image": "images/Shrink-Wrapping--Export-Packing-Covers.webp",
               "description": "ISPM-15 compliant shrink covers built to meet international shipping standards for ocean and air freight."
             },
             {
               "name": "Weatherproof Covers",
-              "image": "images/Shrink-Wrapping--Weatherproof-Covers.png",
+              "image": "images/Shrink-Wrapping--Weatherproof-Covers.webp",
               "description": "All-weather shrink film covers providing moisture, dust, and UV protection for long-term outdoor storage."
             }
           ]
