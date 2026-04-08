@@ -17,7 +17,7 @@
             },
             {
               "name": "UV Protected Shrink",
-              "image": "images/UV_ProtectedShrink.webp",
+              "image": "images/UV-ProtectedShrink.webp",
               "description": "UV-stabilized shrink wrapping designed for outdoor storage and long-distance open cargo transit under direct sunlight."
             },
             {
@@ -39,12 +39,12 @@
             },
             {
               "name": "Export Packing Covers",
-              "image": "images/Shrink-Wrapping--Export-Packing-Covers.webp",
+              "image": "images/ExportPackingCover.webp",
               "description": "ISPM-15 compliant shrink covers built to meet international shipping standards for ocean and air freight."
             },
             {
               "name": "Weatherproof Covers",
-              "image": "images/Shrink-Wrapping--Weatherproof-Covers.webp",
+              "image": "images/WaterproofCovers.webp",
               "description": "All-weather shrink film covers providing moisture, dust, and UV protection for long-term outdoor storage."
             }
           ]
@@ -52,39 +52,39 @@
         {
           "name": "Tarpaulin Packaging",
           "slug": "tarpaulin-packaging",
-          "image": "https://img.freepik.com/free-photo/big-blank-bulky-sealed-package-with-product-presented-front-carton-craft-box_346278-579.jpg",
+          "image": "images/TarpaulinPackagingServices.webp",
           "description": "Heavy-duty tarpaulin-based packaging solutions designed for outdoor protection and transportation of industrial goods. Our tarpaulin covers are reinforced with eyelet holes and UV-stabilized for extended service life.",
           "subcategories": [
             {
               "name": "HDPE Tarpaulin",
-              "image": "https://img.freepik.com/free-photo/packaging-foam-box_1232-3154.jpg?t=st=1774680962~exp=1774684562~hmac=d7002e579a7e0f9208f37221353692aec01543eb18ba4a0183bfda32f39e9af4&w=1480",
+              "image": "images/HDPE_TarpaulinPackaging.webp",
               "description": "High-density polyethylene woven tarpaulin with superior tear resistance and waterproofing for heavy-duty applications."
             },
             {
               "name": "LDPE Tarpaulin",
-              "image": "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=800&auto=format&fit=crop",
+              "image": "images/LDPE_TarpaulinPackaging.webp",
               "description": "Low-density polyethylene tarpaulin offering flexibility and economical protection for temporary storage covers."
             },
             {
               "name": "Laminated Tarpaulin",
-              "image": "https://images.unsplash.com/photo-1616431101491-554c0932ea40?q=80&w=800&auto=format&fit=crop",
+              "image": "images/LaminatedTarpaulin.webp",
               "description": "Multi-layer laminated tarpaulin with enhanced moisture barrier properties for export-grade cargo protection."
             }
           ],
           "endProducts": [
             {
               "name": "Waterproof Equipment Covers",
-              "image": "https://img.freepik.com/free-photo/top-view-plastic-bag-floating-water_23-2151013926.jpg?t=st=1774681040~exp=1774684640~hmac=0c44da512e54cf896460cdb93f940423838208e1be73d7e0105b5defc43f08de&w=1480",
+              "image": "images/Waterproof equipment covers.webp",
               "description": "Custom-sewn tarpaulin covers with reinforced grommets designed to protect machinery from rain and humidity."
             },
             {
               "name": "Transport Covers",
-              "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+              "image": "images/TransportCover.webp",
               "description": "Durable tarpaulin transport covers for open trucks and flatbed trailers ensuring cargo safety during road transit."
             },
             {
               "name": "Outdoor Storage Covers",
-              "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800&auto=format&fit=crop",
+              "image": "images/OutdoorStorageCover.webp",
               "description": "UV-stabilized tarpaulin covers built for long-term outdoor storage of raw materials and finished products."
             }
           ]
@@ -92,34 +92,34 @@
         {
           "name": "Silpaulin Packaging",
           "slug": "silpaulin-packaging",
-          "image": "https://img.freepik.com/premium-photo/silver-foil-pouch-against-blue-background-showcasing-packaging_1368099-3746.jpg",
+          "image": "images/SilpaulinePackaging.webp",
           "description": "Advanced multi-layer silpaulin packaging offering high durability and moisture resistance for industrial applications. Cross-laminated construction provides exceptional puncture and tear resistance compared to standard tarpaulin.",
           "subcategories": [
             {
               "name": "Cross Laminated Sheets",
-              "image": "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=800&auto=format&fit=crop",
+              "image": "images/CrossLaminatedSheets.webp",
               "description": "Cross-woven laminated silpaulin sheets with multi-directional strength for wrapping heavy industrial cargo."
             },
             {
               "name": "Multi-layer Silpaulin",
-              "image": "https://images.unsplash.com/photo-1616431101491-554c0932ea40?q=80&w=800&auto=format&fit=crop",
+              "image": "images/multiLayerSilpaulinePackaging.webp",
               "description": "Premium multi-ply silpaulin with reinforced layers providing superior moisture barrier and mechanical protection."
             }
           ],
           "endProducts": [
             {
               "name": "Heavy Machinery Covers",
-              "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+              "image": "images/HeavyMachineryCovers.webp",
               "description": "Reinforced silpaulin covers for generators, turbines, and heavy factory equipment during shipping and open storage."
             },
             {
               "name": "Export-Grade Wrapping",
-              "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop",
+              "image": "images/ExportGradeWrapping.webp",
               "description": "Export-standard silpaulin wrapping meeting international maritime packaging requirements for corrosion-free transit."
             },
             {
               "name": "Moisture Barrier Covers",
-              "image": "https://img.freepik.com/free-photo/close-up-perforated-fabric_23-2149894537.jpg?t=st=1774681176~exp=1774684776~hmac=7bf811142228942db44dd9c6a0e0a57affe564162f031a923caa2b14f4e1f575&w=1480",
+              "image": "images/MoistureBarrier.webp",
               "description": "High-performance moisture-proof silpaulin covers preventing condensation damage during sea freight shipments."
             }
           ]
@@ -167,7 +167,7 @@
         {
           "name": "Vacuum Packaging",
           "slug": "vacuum-packaging",
-          "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?q=80&w=800&auto=format&fit=crop",
+          "image": "images/VacuumPackaging-VCI.webp",
           "description": "Vacuum packaging solutions designed to eliminate moisture and prevent corrosion during export and storage. Our vacuum barrier bags create an airtight environment that shields metal surfaces from oxidation.",
           "subcategories": [
             {
@@ -179,32 +179,7 @@
               "name": "Aluminum Foil Vacuum Packaging",
               "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
               "description": "Heavy-duty aluminum foil vacuum packaging for sensitive electronics, precision instruments, and metal components."
-            }
-          ],
-          "endProducts": [
-            {
-              "name": "Moisture-Free Packing",
-              "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?q=80&w=800&auto=format&fit=crop",
-              "description": "Vacuum-sealed moisture-free packaging ensuring zero condensation damage during ocean freight and cold storage."
             },
-            {
-              "name": "Export Vacuum Packaging",
-              "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop",
-              "description": "International-standard vacuum packaging with desiccant and humidity indicators for export machinery shipments."
-            },
-            {
-              "name": "Corrosion Prevention Packing",
-              "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
-              "description": "VCI-enhanced vacuum packing creating an oxygen-free environment for long-term metal part preservation."
-            }
-          ]
-        },
-        {
-          "name": "VCI Packaging",
-          "slug": "vci-packaging",
-          "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
-          "description": "VCI-based anti-corrosion packaging solutions for protecting metal components during storage and transit. Volatile Corrosion Inhibitor molecules create an invisible protective layer on metal surfaces without direct contact.",
-          "subcategories": [
             {
               "name": "VCI Films",
               "image": "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=800&auto=format&fit=crop",
@@ -223,6 +198,21 @@
           ],
           "endProducts": [
             {
+              "name": "Moisture-Free Packing",
+              "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?q=80&w=800&auto=format&fit=crop",
+              "description": "Vacuum-sealed moisture-free packaging ensuring zero condensation damage during ocean freight and cold storage."
+            },
+            {
+              "name": "Export Vacuum Packaging",
+              "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop",
+              "description": "International-standard vacuum packaging with desiccant and humidity indicators for export machinery shipments."
+            },
+            {
+              "name": "Corrosion Prevention Packing",
+              "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
+              "description": "VCI-enhanced vacuum packing creating an oxygen-free environment for long-term metal part preservation."
+            },
+             {
               "name": "Anti-Corrosion Packing",
               "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
               "description": "Complete anti-corrosion packaging solutions combining VCI films, papers, and desiccants for maximum rust protection."
@@ -236,6 +226,46 @@
               "name": "Long-Term Storage Packaging",
               "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?q=80&w=800&auto=format&fit=crop",
               "description": "VCI barrier packaging designed for 2-5 year corrosion-free storage of spare parts and maintenance inventory."
+            }
+          ]
+        },
+        {
+          "name": "Container Lashing",
+          "slug": "container-lashing",
+          "image": "images/ContainerLashing.webp",
+          "description": "Container lashing services ensure secure fastening of cargo inside containers for safe transportation. Using straps, chains, and tensioning systems, cargo is stabilized to prevent movement, damage, or accidents during transit via road, rail, or sea.",
+          "subcategories": [
+            {
+              "name": "Polyester Web Lashing",
+              "image": "https://images.unsplash.com/photo-1601582585289-2f63c5b76c9a?q=80&w=800&auto=format&fit=crop",
+              "description": "High-strength polyester straps used for securing cargo with flexibility and shock absorption. Ideal for lightweight to medium-weight goods and widely used for export packaging."
+            },
+            {
+              "name": "Ratchet Lashing Systems",
+              "image": "https://images.unsplash.com/photo-1600267165464-1a8a4b53d1df?q=80&w=800&auto=format&fit=crop",
+              "description": "Adjustable ratchet-based lashing systems that provide precise tension control for securing heavy cargo. Ensures tight fastening and easy handling during loading and unloading."
+            },
+            {
+              "name": "Chain & Wire Rope Lashing",
+              "image": "https://images.unsplash.com/photo-1581091870627-3d2d7a63e0d5?q=80&w=800&auto=format&fit=crop",
+              "description": "Heavy-duty lashing using metal chains or wire ropes for extremely heavy and rigid cargo such as machinery, steel coils, and industrial equipment."
+            },
+            {
+              "name": "Cord Strap Lashing",
+              "image": "https://images.unsplash.com/photo-1621905252472-e8c5c9e1c4c7?q=80&w=800&auto=format&fit=crop",
+              "description": "Composite cord straps made from polyester fibers with high tensile strength, offering a safer alternative to steel strapping for securing large cargo loads."
+            }
+          ],
+          "endProducts": [
+            {
+              "name": "Export Cargo Securing",
+              "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop",
+              "description": "Professional lashing solutions for export shipments ensuring cargo stability inside containers during international transit."
+            },
+            {
+              "name": "Heavy Machinery Lashing",
+              "image": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop",
+              "description": "Specialized lashing techniques for securing industrial machines, generators, and large equipment to prevent shifting and damage."
             }
           ]
         }
