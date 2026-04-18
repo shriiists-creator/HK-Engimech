@@ -244,7 +244,7 @@
         {
           "name": "Wooden Box",
           "slug": "wooden-box",
-          "image": "https://images.unsplash.com/photo-1627383316495-8aa5298164bb?q=80&w=800&auto=format&fit=crop",
+          "image": "images/WoodenBoxServiceBanner.webp",
           "description": "Durable wooden packaging boxes designed for heavy machinery and export applications. Our boxes are built from seasoned hardwood with reinforced joints, meeting ISPM-15 international phytosanitary standards.",
           "subcategories": [
             {
@@ -254,64 +254,64 @@
             },
             {
               "name": "Heavy Duty Wooden Crates",
-              "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Heavy_Duty_Wooden_Crates.webp",
               "description": "Reinforced crates built with dense timber for transporting machinery and equipment weighing over 500 kg."
             },
             {
               "name": "Skid Base Boxes",
-              "image": "https://img.freepik.com/free-photo/3d-rendering-cartoon-shopping-cart_23-2151680600.jpg?t=st=1774681509~exp=1774685109~hmac=8ce2277f620f6729cc546c6fc0268a4413d7f725b1e9514c7dda00f2d4740f72&w=1060",
+              "image": "images/SubCatImages/Skid_Base_Boxes.webp",
               "description": "Skid-mounted wooden boxes with integrated forklift runners for easy loading and unloading operations."
             }
           ],
           "endProducts": [
             {
               "name": "Export Wooden Boxes",
-              "image": "https://images.unsplash.com/photo-1647966520051-d4975b0fac7a?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Export_Wooden_Boxes.webp",
               "description": "ISPM-15 stamped wooden boxes built to international export standards for ocean, air, and road freight."
             },
             {
               "name": "Machinery Packaging Boxes",
-              "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Machinery_Packaging_Boxes.webp",
               "description": "Custom-dimensioned wooden boxes engineered to safely package CNC machines, motors, and industrial equipment."
             },
             {
               "name": "Heavy Equipment Transport Boxes",
-              "image": "https://img.freepik.com/free-photo/3d-rendering-cartoon-shopping-cart_23-2151680599.jpg?t=st=1774690153~exp=1774693753~hmac=c80fe0797d5cce43c9ebc586e664c0a6785c0d5f2bc9c7e5551ae5d39b31bd95&w=1480",
+              "image": "images/SubCatImages/Heavy_Equipmende.webp",
               "description": "Ultra-heavy-duty wooden crates with internal bracing for transporting equipment weighing 2 tonnes and above."
             }
           ]
         },
         {
-          "name": "Ply Box",
+          "name": "Ply Box", 
           "slug": "ply-box",
-          "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?q=80&w=800&auto=format&fit=crop",
+          "image": "images/PlyBoxServiceBanner.webp",
           "description": "Lightweight and reusable plywood boxes ideal for industrial and export packaging. Built from commercial-grade plywood with precision-cut panels and durable fastening systems for repeated use.",
           "subcategories": [
             {
               "name": "Plywood Box",
-              "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Plywood_Box.webp",
               "description": "Standard plywood packaging boxes manufactured from 9mm to 18mm commercial plywood with nailless assembly options."
             },
             {
               "name": "Foldable Ply Box",
-              "image": "https://img.freepik.com/free-photo/box-mockup_23-2147721829.jpg?t=st=1774690226~exp=1774693826~hmac=8d500b833f6e358b28a613aad0717d0a430208f6c2258d0c05f8a7ba439bb5f4&w=1480",
+              "image": "images/SubCatImages/Foldable_Ply_Box.webp",
               "description": "Collapsible plywood boxes with hinge-fold design for space-efficient return logistics and reuse cycles."
             }
           ],
           "endProducts": [
             {
               "name": "Export Packing Boxes",
-              "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Export_Packing_Boxes.webp",
               "description": "Fumigation-free plywood boxes compliant with international export regulations for hassle-free customs clearance."
             },
             {
               "name": "Lightweight Machinery Packaging",
-              "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Lightweight_Machinery_Packaging.webp",
               "description": "Plywood packaging solutions optimized for machinery under 1 tonne, reducing shipping weight and freight costs."
             },
             {
               "name": "Reusable Packing Boxes",
-              "image": "https://img.freepik.com/free-photo/close-up-hands-packing-shirt_23-2148975565.jpg?t=st=1774690297~exp=1774693897~hmac=1b90fde8bae39e914cc393218747e7d43b956eceee1390dc9f86ed0e1a2c8992&w=1480",
+              "image": "images/SubCatImages/Reusable_Packing_Boxes.webp",
               "description": "Durable plywood boxes designed for 10+ reuse cycles in closed-loop supply chain and reverse logistics operations."
             }
           ]
@@ -325,34 +325,34 @@
         {
           "name": "4-Way Pallet",
           "slug": "4-way-pallet",
-          "image": "https://images.unsplash.com/photo-1680268997856-d278566cbcf1?q=80&w=800&auto=format&fit=crop",
+          "image": "images/4_WayPalletServiceBanner.webp",
           "description": "Four-way entry pallets compatible with forklifts and pallet jacks for efficient material handling. Accessible from all four sides, these pallets are the industry standard for warehouse operations and shipping.",
           "subcategories": [
             {
               "name": "Wooden 4-Way Pallet",
-              "image": "https://images.unsplash.com/photo-1658248709514-ec1d74cd74eb?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Wooden_4-Way_Pallet.webp",
               "description": "Classic wooden 4-way entry pallets built from seasoned timber with notched stringers for universal forklift access."
             },
             {
               "name": "Plastic 4-Way Pallet",
-              "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Plastic_4-Way_Pallet.webp",
               "description": "Hygienic, moisture-proof HDPE plastic pallets with 4-way entry, ideal for pharmaceutical and food industry applications."
             }
           ],
           "endProducts": [
             {
               "name": "Forklift Compatible Pallets",
-              "image": "https://images.unsplash.com/photo-1662611284559-7e9b09e3e324?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Forklift_Compatible_Pallets.webp",
               "description": "Standard-dimension 4-way pallets (1200×1000mm) compatible with all forklift types for seamless warehouse integration."
             },
             {
               "name": "Export Pallets",
-              "image": "https://images.unsplash.com/photo-1662106143546-e1f21335d4a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "image": "images/SubCatImages/Export_Pallets.webp",
               "description": "Heat-treated ISPM-15 compliant 4-way pallets cleared for international export shipments across all destinations."
             },
             {
               "name": "Warehouse Storage Pallets",
-              "image": "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Warehouse_Storage_Pallets.webp",
               "description": "Heavy-duty 4-way pallets rated for high-rack warehouse storage systems supporting loads up to 1500 kg."
             }
           ]
@@ -360,24 +360,24 @@
         {
           "name": "2-Way Pallet",
           "slug": "2-way-pallet",
-          "image": "https://img.freepik.com/free-photo/man-working-with-heavy-wooden-materials_23-2148976279.jpg?t=st=1774690661~exp=1774694261~hmac=9139a41e2a903d9c1b106cc826370115487484f7e7c539d171c8bcabffaa1c47&w=1480",
+          "image": "images/2_WayPalletServiceBanner.webp",
           "description": "Two-way pallets designed for basic industrial storage and transportation needs. Economical and strong, these pallets are ideal for straight-line material flow and conveyor-based handling systems.",
           "subcategories": [
             {
               "name": "Wooden 2-Way Pallet",
-              "image": "https://images.unsplash.com/photo-1594571194668-7112042d8f54?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Wooden_2-Way_Pallet.webp",
               "description": "Cost-effective wooden 2-way pallets with solid stringer construction for directional forklift handling operations."
             }
           ],
           "endProducts": [
             {
               "name": "Basic Transport Pallets",
-              "image": "https://images.unsplash.com/photo-1729161632263-a0e0da501895?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Basic_Transport_Pallets.webp",
               "description": "Affordable 2-way pallets for one-way shipments and domestic transportation where 4-way access is not required."
             },
             {
               "name": "Industrial Storage Pallets",
-              "image": "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Industrial_Storage_Pallets.webp",
               "description": "Robust 2-way pallets for ground-level industrial storage of heavy raw materials and semi-finished goods."
             }
           ]
@@ -391,24 +391,24 @@
         {
           "name": "3 Ply",
           "slug": "3-ply",
-          "image": "https://images.unsplash.com/photo-1550955070-e5248f1301ba?q=80&w=800&auto=format&fit=crop",
+          "image": "images/3_PlyServiceBanner.webp",
           "description": "Lightweight corrugated boxes suitable for inner packaging and low-weight products. Single-wall construction provides basic cushioning and protection at an economical price point.",
           "subcategories": [
             {
               "name": "Single Wall Corrugated",
-              "image": "https://images.unsplash.com/photo-1742463413520-2037d86df1d7?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Single_Wall_Corrugated.webp",
               "description": "Standard single-wall (B/C flute) corrugated board boxes for light to medium-weight consumer and industrial products."
             }
           ],
           "endProducts": [
             {
               "name": "Lightweight Cartons",
-              "image": "https://images.unsplash.com/photo-1573376671258-62ee7b68c853?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Lightweight_Cartons.webp",
               "description": "3-ply corrugated cartons ideal for FMCG products, electronics accessories, and retail-ready packaging applications."
             },
             {
               "name": "Inner Packaging Boxes",
-              "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Inner_Packaging_Boxes.webp",
               "description": "Die-cut 3-ply inner boxes providing cushioned compartments for individual product protection within outer cartons."
             }
           ]
@@ -416,24 +416,24 @@
         {
           "name": "5 Ply",
           "slug": "5-ply",
-          "image": "https://images.unsplash.com/photo-1640193698858-31565d448f90?q=80&w=800&auto=format&fit=crop",
+          "image": "images/5_PlyServiceBanner.webp",
           "description": "Medium strength corrugated packaging for industrial applications. Double-wall construction offers enhanced stacking strength and impact resistance for heavier products and longer supply chains.",
           "subcategories": [
             {
               "name": "Double Wall Corrugated",
-              "image": "https://images.unsplash.com/photo-1579760546930-32bb6902a07d?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Double_Wall_Corrugated.webp",
               "description": "Double-wall (BC flute) corrugated board boxes providing superior crush resistance for medium to heavy industrial goods."
             }
           ],
           "endProducts": [
             {
               "name": "Medium Duty Cartons",
-              "image": "https://img.freepik.com/free-photo/kraft-boxes-scandinavian-living-room-floor_53876-123959.jpg?t=st=1774691585~exp=1774695185~hmac=b4d640b93a7a6ac954042ab5664af73f366af9c90ff696288fbcd8e98200abc1&w=1480",
+              "image": "images/SubCatImages/Medium_Duty_Cartons.webp",
               "description": "5-ply corrugated cartons engineered for automotive spare parts, hardware components, and industrial equipment packaging."
             },
             {
               "name": "Industrial Packaging Boxes",
-              "image": "https://img.freepik.com/free-photo/mockup-blank-beige-paper-boxes-retro-rough-brown-wooden-crate-isolated-white_346278-1608.jpg?t=st=1774691667~exp=1774695267~hmac=56d300d88d81e92425809910a5f100488f6d6a567dcc897ca9dace844e0a2897&w=1480",
+              "image": "images/SubCatImages/Industrial_Packaging_Boxes.webp",
               "description": "Robust 5-ply boxes with high burst strength for factory-to-warehouse and inter-plant material movement."
             }
           ]
@@ -441,29 +441,29 @@
         {
           "name": "7 Ply",
           "slug": "7-ply",
-          "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop",
+          "image": "images/7_PlyServiceBanner.webp",
           "description": "Heavy-duty corrugated boxes designed for export and high load capacity. Triple-wall construction provides maximum protection for heavy, fragile, or high-value industrial products.",
           "subcategories": [
             {
               "name": "Triple Wall Corrugated",
-              "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Triple_Wall_Corrugated.webp",
               "description": "Triple-wall (BAC flute) corrugated board delivering the highest crush and burst strength for heavyweight cargo."
             }
           ],
           "endProducts": [
             {
               "name": "Heavy Duty Cartons",
-              "image": "https://images.unsplash.com/photo-1573376670774-4427757f7963?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Heavy_Duty_Cartons.webp",
               "description": "7-ply heavy duty cartons capable of supporting loads up to 50 kg per box for industrial part shipments."
             },
             {
               "name": "Export Packaging Boxes",
-              "image": "https://img.freepik.com/free-photo/boxes-stacked-delivery-with-ramp_23-2152008992.jpg?t=st=1774691828~exp=1774695428~hmac=b7529ba77db7b574093738252f8f53a3f0c0d6ac7424e7eda28808f8b68b7c86&w=1060",
+              "image": "images/SubCatImages/Export_Packaging_Boxes.webp",
               "description": "Export-grade 7-ply corrugated boxes meeting international packaging standards for sea and air freight."
             },
             {
               "name": "High Load Bearing Boxes",
-              "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/High_Load_Bearing_Boxes.webp",
               "description": "Maximum-strength 7-ply boxes engineered for stacking in warehouses and containers without compression damage."
             }
           ]
@@ -477,47 +477,47 @@
         {
           "name": "Packaging Consumables",
           "slug": "packaging-consumables",
-          "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
+          "image": "images/PackagingConsumablesServiceBanner.webp",
           "description": "Supporting consumables used in industrial packaging and securing applications. From strapping solutions to cushioning materials, we supply everything needed to complete your packaging line.",
           "optionalAddOnCategory": [
             {
               "name": "Cord Strap & Buckles",
-              "image": "https://images.unsplash.com/photo-1616431101491-554c0932ea40?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Cord_Strap_And_Buckles.webp",
               "description": "Polyester cord straps with GI wire buckles for heavy-duty bundling and pallet load securing."
             },
             {
               "name": "PET Strap",
-              "image": "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/PET_Strap.webp",
               "description": "High-tensile PET strapping rolls for automated and manual strapping of cartons, crates, and pallets."
             },
             {
               "name": "Lashing Belt & Machine",
-              "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Lashing_Belt_And_Machine.webp",
               "description": "Industrial lashing belts and ratchet tensioners for securing heavy cargo on flatbed trucks and containers."
             },
             {
               "name": "BOPP Tape",
-              "image": "https://img.freepik.com/free-photo/sticky-tape-box_23-2147758664.jpg?t=st=1774691917~exp=1774695517~hmac=959a5bc7ec55ddd3b670e6b78f0086b739e969551d52ed9ea3994a2af41b1e94&w=1480",
+              "image": "images/SubCatImages/BOPP_Tape.webp",
               "description": "Biaxially-oriented polypropylene adhesive tape for sealing corrugated boxes and general packaging applications."
             },
             {
               "name": "Shrink Tape",
-              "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Shrink_Tape.webp",
               "description": "Heat-activated shrink tape for securing shrink wrap edges and creating reinforced seals on covered cargo."
             },
             {
               "name": "Stretch Wrapping Roll",
-              "image": "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/Stretch_Wrapping_Roll.webp",
               "description": "Premium LLDPE stretch film rolls in 300mm and 450mm widths for pallet wrapping and load stabilization."
             },
             {
               "name": "EPE Foam Roll",
-              "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?q=80&w=800&auto=format&fit=crop",
+              "image": "images/SubCatImages/EPE_Foam_Roll.webp",
               "description": "Expanded polyethylene foam rolls for cushioning, wrapping, and surface protection of delicate industrial items."
             },
             {
               "name": "Air Bubble Roll",
-              "image": "https://img.freepik.com/free-photo/person-organising-live-shop_23-2149947456.jpg?t=st=1774691983~exp=1774695583~hmac=c7966fe791ed77fb41c94d86bc111bacd42fb6736e1c53320e1c6ede20e6308d&w=1060",
+              "image": "images/SubCatImages/Air_Bubble_Roll.webp",
               "description": "Air bubble wrap rolls providing lightweight cushioning and shock absorption for fragile product packaging."
             }
           ]
