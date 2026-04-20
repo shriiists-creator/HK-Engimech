@@ -27,8 +27,7 @@
     <script async src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- LightGallery CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
     <style>
         /* Reusing Banner Animations */
@@ -87,7 +86,34 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            min-height: 400px; /* Fallback to prevent content cut-off on mobile */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+
+        /* ═══════════════════════════════════════
+           Fancybox Overrides to match brand
+        ═══════════════════════════════════════ */
+        .fancybox__backdrop {
+            background-color: rgba(26, 26, 29, 0.95) !important;
+        }
+
+        .f-button {
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
+
+        .f-button:hover {
+            color: var(--primary) !important;
+        }
+
+        .f-carousel__thumb.is-nav-selected {
+            border-color: var(--primary) !important;
+        }
+
+
+
 
         /* ═══════════════════════════════════════
            GALLERY STYLES
@@ -543,9 +569,7 @@
             <div id="gallery-container" data-aos="fade-up" data-aos-delay="200">
 
                 <!-- 1. Shrink Film — FEATURED -->
-                <a href="images/product1.jpg" class="gallery-item featured" data-category="films"
-                    data-sub-html='<h4>Shrink Film</h4><p>PVC Shrink Film Roll for industrial packaging applications</p>'
-                    data-lg-size="1600-1200">
+                <a href="images/product1.jpg" class="gallery-item" data-category="films" data-fancybox="gallery" data-caption="Shrink Film – PVC Shrink Film Roll for industrial packaging applications" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/product1.webp" alt="Shrink Film Roll">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Shrink Film</span>
@@ -557,9 +581,7 @@
                 </a>
 
                 <!-- 2. Masking Tape -->
-                <a href="images/product2.jpg" class="gallery-item" data-category="tapes"
-                    data-sub-html="<h4>Masking Tape</h4><p>20 Meter Plain Masking Tape for painting and packaging</p>"
-                    data-lg-size="1600-1200">
+                <a href="images/product2.jpg" class="gallery-item" data-category="tapes" data-fancybox="gallery" data-caption="Masking Tape – 20 Meter Plain Masking Tape for painting and packaging" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/product2.webp" alt="Masking Tape">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Masking Tape</span>
@@ -571,10 +593,8 @@
                 </a>
 
                 <!-- 3. Cord Strap -->
-                <a href="images/product3.jpg" class="gallery-item" data-category="tapes"
-                    data-sub-html="<h4>Cord Strap</h4><p>19mm Polyester Cord Strap for secure bundling and palletizing</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/product3.webp" alt="Cord Strap">
+                <a href="images/SubCatImages/Cord_Strap_And_Buckles.webp" class="gallery-item" data-category="tapes" data-fancybox="gallery" data-caption="Cord Strap – 19mm Polyester Cord Strap for secure bundling and palletizing" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/SubCatImages/Cord_Strap_And_Buckles.webp" alt="Cord Strap">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Cord Strap</span>
                         <span class="gallery-overlay-cat">Tapes & Straps</span>
@@ -585,10 +605,8 @@
                 </a>
 
                 <!-- 4. Corrugated Packaging Boxes -->
-                <a href="images/product4.jpg" class="gallery-item" data-category="boxes"
-                    data-sub-html="<h4>Corrugated Packaging Boxes</h4><p>Brown corrugated cardboard boxes for secure packaging</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/product4.webp" alt="Corrugated Packaging Boxes">
+                <a href="images/SubCatImages/Single_Wall_Corrugated.webp" class="gallery-item" data-category="boxes" data-fancybox="gallery" data-caption="Corrugated Packaging Boxes – Brown corrugated cardboard boxes for secure packaging" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/SubCatImages/Single_Wall_Corrugated.webp" alt="Corrugated Packaging Boxes">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Corrugated Boxes</span>
                         <span class="gallery-overlay-cat">Boxes & Packaging</span>
@@ -600,9 +618,7 @@
 
 
                 <!-- 5. EPE Foam Roll -->
-                <a href="images/product5.jpg" class="gallery-item" data-category="foam"
-                    data-sub-html="<h4>EPE Foam Roll</h4><p>Expanded Polyethylene foam for protective packaging</p>"
-                    data-lg-size="1600-1200">
+                <a href="images/product5.jpg" class="gallery-item" data-category="foam" data-fancybox="gallery" data-caption="EPE Foam Roll – Expanded Polyethylene foam for protective packaging" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/product5.webp" alt="EPE Foam Roll">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">EPE Foam Roll</span>
@@ -614,9 +630,7 @@
                 </a>
 
                 <!-- 6. Stretch Film Roll — FEATURED -->
-                <a href="images/product6.jpg" class="gallery-item featured" data-category="films"
-                    data-sub-html="<h4>Stretch Film Roll</h4><p>300mm flexible wrapping solution for securing goods</p>"
-                    data-lg-size="1600-1200">
+                <a href="images/product6.jpg" class="gallery-item " data-category="films" data-fancybox="gallery" data-caption="Stretch Film Roll – 300mm flexible wrapping solution for securing goods" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/product6.webp" alt="Stretch Film Roll">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Stretch Film Roll</span>
@@ -628,10 +642,7 @@
                 </a>
 
                 <!-- 7. Pallet Shrink Wrapping -->
-                <a href="images/Shrink-Wrapping--Pallet-Shrink-Wrapping.webp" class="gallery-item"
-                    data-category="services"
-                    data-sub-html="<h4>Pallet Shrink Wrapping</h4><p>Professional pallet shrink wrapping for safe transit</p>"
-                    data-lg-size="1600-1200">
+                <a href="images/Shrink-Wrapping--Pallet-Shrink-Wrapping.webp" class="gallery-item" data-category="services" data-fancybox="gallery" data-caption="Pallet Shrink Wrapping – Professional pallet shrink wrapping for safe transit" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/Shrink-Wrapping--Pallet-Shrink-Wrapping.webp"
                         alt="Pallet Shrink Wrapping">
                     <div class="gallery-overlay">
@@ -644,11 +655,8 @@
                 </a>
 
                 <!-- 8. Heat Shrink Packaging -->
-                <a href="images/Shrink-Wrapping--Heat-Shrink-Packaging.webp" class="gallery-item"
-                    data-category="services"
-                    data-sub-html="<h4>Heat Shrink Packaging</h4><p>Industrial heat shrink packaging for machinery and goods</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/Shrink-Wrapping--Heat-Shrink-Packaging.webp"
+                <a href="images/HeatShrinkPackaging.webp" class="gallery-item" data-category="services" data-fancybox="gallery" data-caption="Heat Shrink Packaging – Industrial heat shrink packaging for machinery and goods" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/HeatShrinkPackaging.webp"
                         alt="Heat Shrink Packaging">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Heat Shrink</span>
@@ -660,11 +668,8 @@
                 </a>
 
                 <!-- 9. Export Packing Covers -->
-                <a href="images/Shrink-Wrapping--Export-Packing-Covers.webp" class="gallery-item"
-                    data-category="services"
-                    data-sub-html="<h4>Export Packing Covers</h4><p>Heavy-duty covers for export cargo protection</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/Shrink-Wrapping--Export-Packing-Covers.webp"
+                <a href="images/ExportPackingCover.webp" class="gallery-item" data-category="services" data-fancybox="gallery" data-caption="Export Packing Covers – Heavy-duty covers for export cargo protection" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/ExportPackingCover.webp"
                         alt="Export Packing Covers">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Export Covers</span>
@@ -676,11 +681,8 @@
                 </a>
 
                 <!-- 10. Machine Shrink Covers -->
-                <a href="images/Shrink-Wrapping--Machine-Shrink-Covers.webp" class="gallery-item"
-                    data-category="services"
-                    data-sub-html="<h4>Machine Shrink Covers</h4><p>Custom shrink covers crafted for industrial machinery</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/Shrink-Wrapping--Machine-Shrink-Covers.webp"
+                <a href="images/MachineTransperantShrinkCover.webp" class="gallery-item" data-category="services" data-fancybox="gallery" data-caption="Machine Shrink Covers – Custom shrink covers crafted for industrial machinery" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/MachineTransperantShrinkCover.webp"
                         alt="Machine Shrink Covers">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Machine Covers</span>
@@ -692,11 +694,8 @@
                 </a>
 
                 <!-- 11. Heavy Duty Shrink Covers  -->
-                <a href="images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.webp" class="gallery-item"
-                    data-category="films"
-                    data-sub-html="<h4>Heavy Duty Shrink Covers</h4><p>Premium grade shrink covers for heavy-duty applications</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/Shrink-Wrapping--Heavy-Duty-Shrink-Covers.webp"
+                <a href="images/HeavyDutyShrinkCovers.webp" class="gallery-item" data-category="films" data-fancybox="gallery" data-caption="Heavy Duty Shrink Covers – Premium grade shrink covers for heavy-duty applications" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/HeavyDutyShrinkCovers.webp"
                         alt="Heavy Duty Shrink Covers">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Heavy Duty Covers</span>
@@ -708,9 +707,7 @@
                 </a>
 
                 <!-- 12. UV Protected Shrink -->
-                <a href="images/Shrink-Wrapping--UV-Protected-Shrink.webp" class="gallery-item" data-category="films"
-                    data-sub-html="<h4>UV Protected Shrink</h4><p>UV-resistant shrink wrap for outdoor storage protection</p>"
-                    data-lg-size="1600-1200">
+                <a href="images/Shrink-Wrapping--UV-Protected-Shrink.webp" class="gallery-item" data-category="films" data-fancybox="gallery" data-caption="UV Protected Shrink – UV-resistant shrink wrap for outdoor storage protection" data-lg-size="1600-1200">
                     <img loading="lazy" src="images/Shrink-Wrapping--UV-Protected-Shrink.webp" alt="UV Protected Shrink">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">UV Protected</span>
@@ -722,10 +719,8 @@
                 </a>
 
                 <!-- 13. Weatherproof Covers -->
-                <a href="images/Shrink-Wrapping--Weatherproof-Covers.webp" class="gallery-item" data-category="services"
-                    data-sub-html="<h4>Weatherproof Covers</h4><p>All-weather protection covers for outdoor equipment</p>"
-                    data-lg-size="1600-1200">
-                    <img loading="lazy" src="images/Shrink-Wrapping--Weatherproof-Covers.webp" alt="Weatherproof Covers">
+                <a href="images/WaterproofCovers.webp" class="gallery-item" data-category="services" data-fancybox="gallery" data-caption="Weatherproof Covers – All-weather protection covers for outdoor equipment" data-lg-size="1600-1200">
+                    <img loading="lazy" src="images/WaterproofCovers.webp" alt="Weatherproof Covers">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-title">Weatherproof Covers</span>
                         <span class="gallery-overlay-cat">Services</span>
@@ -770,92 +765,50 @@
     <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- LightGallery JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/zoom/lg-zoom.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <script>
-        // Initialize AOS
-        AOS.init({ once: true, duration: 800, offset: 50 });
+    // Initialize AOS
+    AOS.init({ once: true, duration: 800, offset: 50 });
 
-        // ═══ LightGallery Initialization ═══
-        let lgInstance = null;
+    // ═══ FILTER FUNCTIONALITY ═══
+    (function () {
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
 
-        function initLightGallery() {
-            // Destroy previous instance
-            if (lgInstance) {
-                lgInstance.destroy();
-                lgInstance = null;
-            }
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
 
-            const container = document.getElementById('gallery-container');
-            // Get only visible (not hidden) items
-            const visibleItems = container.querySelectorAll('.gallery-item:not(.hide)');
+                const filter = this.getAttribute('data-filter');
 
-            lgInstance = lightGallery(container, {
-                plugins: [lgZoom, lgThumbnail, lgFullscreen],
-                selector: '.gallery-item:not(.hide)',
-                speed: 500,
-                backdropDuration: 300,
-                download: false,
-                counter: true,
-                hideControlOnEnd: true,
-                loop: true,
-                thumbnail: true,
-                animateThumb: true,
-                thumbWidth: 100,
-                thumbHeight: '80px',
-                zoomFromOrigin: true,
-                toggleThumb: true,
-                allowMediaOverlap: false,
-                addClass: 'lg-hk-custom',
-                mobileSettings: {
-                    controls: true,
-                    showCloseIcon: true,
-                    download: false
-                }
-            });
-        }
-
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', function () {
-            initLightGallery();
-        });
-
-        // ═══ FILTER FUNCTIONALITY ═══
-        (function () {
-            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-            const items = document.querySelectorAll('.gallery-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const filter = this.getAttribute('data-filter');
-
-                    // Animate items
-                    items.forEach((item, index) => {
-                        const category = item.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            item.classList.remove('hide');
-                            item.style.animationDelay = `${index * 0.05}s`;
-                        } else {
-                            item.classList.add('hide');
-                        }
-                    });
-
-                    // Reinitialize LightGallery after filter change
-                    setTimeout(() => {
-                        initLightGallery();
-                    }, 100);
+                // Animate items and sync with Fancybox Grouping
+                items.forEach((item, index) => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hide');
+                        item.style.animationDelay = `${index * 0.05}s`;
+                        
+                        // Keep visible items in the Fancybox lightbox
+                        item.setAttribute('data-fancybox', 'gallery');
+                    } else {
+                        item.classList.add('hide');
+                        
+                        // Remove grouping attribute so hidden items are ignored
+                        item.removeAttribute('data-fancybox');
+                    }
                 });
             });
-        })();
-    </script>
+        });
+    })();
+
+    // Initialize Fancybox
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // You can add customization options here if needed
+    });
+</script>
 
     <script defer src="js/script.js"></script>
 </body>
