@@ -194,17 +194,20 @@
       gap: 28px;
     }
 
-        @media (max-width: 991.98px) {
+    @media (max-width: 991.98px) {
       :root {
         --nav-height: 103.69px;
       }
+
       .navLink {
         color: var(--dark);
         padding: 12px 8px;
       }
+
       .navLink.active {
         color: var(--lightMain);
       }
+
       .navMenu {
         gap: 4px;
         position: fixed;
@@ -216,6 +219,7 @@
         flex-direction: column;
         padding-top: 60px;
       }
+
       .navToggle {
         display: block;
         background: transparent;
@@ -224,13 +228,16 @@
         cursor: pointer;
         color: var(--primary);
       }
+
       .miniHeader {
         display: none !important;
       }
     }
 
     @media (min-width: 992px) {
-      .navToggle, .btn-nav-close {
+
+      .navToggle,
+      .btn-nav-close {
         display: none;
       }
     }
@@ -458,7 +465,7 @@
           </aside>
           <!-- Content Area -->
           <div class="service-content-area" id="serviceContentArea">
-            <!-- â•â•â• SECTION 1: Service Name & Description â•â•â• -->
+            <!-- ═══ SECTION 1: Service Name & Description ═══ -->
             <div class="svc-section-info" id="svcSectionInfo">
               <img alt="" class="service-content-img" id="serviceImage" src="" />
               <div class="service-content-body">
@@ -466,7 +473,7 @@
                 <p class="service-content-desc" id="serviceDesc"></p>
               </div>
             </div>
-            <!-- â•â•â• SECTION 2: Sub-Categories â•â•â• -->
+            <!-- ═══ SECTION 2: Sub-Categories ═══ -->
             <div class="svc-section-subcategories" id="svcSectionSubcategories" style="display:none;">
               <div class="svc-section-header">
                 <h3 class="svc-section-title">
@@ -501,7 +508,7 @@
                 </div>
               </div>
             </div>
-            <!-- â•â•â• SECTION 3: End Products â•â•â• -->
+            <!-- ═══ SECTION 3: End Products ═══ -->
             <div class="svc-section-endproducts" id="svcSectionEndproducts" style="display:none;">
               <div class="svc-section-header">
                 <h3 class="svc-section-title">
@@ -513,7 +520,7 @@
                 <!-- Populated by JS -->
               </div>
             </div>
-            <!-- â•â•â• SECTION: Add-On Category (for consumables) â•â•â• -->
+            <!-- ═══ SECTION: Add-On Category (for consumables) ═══ -->
             <div class="svc-section-addon" id="svcSectionAddon" style="display:none;">
               <div class="svc-section-header">
                 <h3 class="svc-section-title">
