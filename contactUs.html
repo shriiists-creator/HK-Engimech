@@ -567,18 +567,32 @@
     });
   </script>
   <script>
-    (function () {
+   (function () {
       'use strict'; const companyPhone = "917984899514"; function debounce(func, wait) { let timeout; return function executedFunction(...args) { const later = () => { clearTimeout(timeout); func(...args) }; clearTimeout(timeout); timeout = setTimeout(later, wait) } }
       let whatsappBaseUrl = ''; function updateWhatsAppUrl() { const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 992; whatsappBaseUrl = isMobile ? `https://api.whatsapp.com/send` : `https://web.whatsapp.com/send` }
       updateWhatsAppUrl(); window.addEventListener('resize', debounce(updateWhatsAppUrl, 250)); function openWhatsApp(message) { const url = `${whatsappBaseUrl}?phone=${companyPhone}&text=${encodeURIComponent(message)}`; window.open(url, '_blank') }
       const form = document.getElementById('whatsappForm'); if (form) {
         form.addEventListener('submit', function (event) {
           event.preventDefault(); event.stopPropagation(); if (!form.checkValidity()) { form.classList.add('was-validated'); return }
-          const name = document.getElementById('name').value.trim(); const phone = document.getElementById('phone').value.trim(); const service = document.getElementById('serviceType').value; const message = document.getElementById('messageDetails').value.trim(); const text = `ðŸ“¦ *New Enquiry from HK Engimech Website*\n` + `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n` + `ðŸ‘¤ *Name:* ${name}\n` + `ðŸ“ž *Phone:* ${phone}\n` + `ðŸ­ *Interested In:* ${service}\n` + `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n` + `ðŸ“ *Requirements:*\n ` + `${message}\n` + `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`; if (typeof window.submitToGoogleSheet === "function") { window.submitToGoogleSheet({ formType: "Contact Us", name: name, mobile: phone, service: service, requirements: message, source: "Contact Us Page Form" }) }
+          const name = document.getElementById('name').value.trim(); const phone = document.getElementById('phone').value.trim(); const service = document.getElementById('serviceType').value; const message = document.getElementById('messageDetails').value.trim(); 
+          
+          // FIXED: Corrupted strings restored to correct Emojis and Dividers
+          const text = `📦 *New Enquiry from HK Engimech Website*\n` + 
+                       `⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n` + 
+                       `👤 *Name:* ${name}\n` + 
+                       `📞 *Phone:* ${phone}\n` + 
+                       `🏭 *Interested In:* ${service}\n` + 
+                       `⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n` + 
+                       `📝 *Requirements:*\n ` + 
+                       `${message}\n` + 
+                       `⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯`; 
+                       
+          if (typeof window.submitToGoogleSheet === "function") { window.submitToGoogleSheet({ formType: "Contact Us", name: name, mobile: phone, service: service, requirements: message, source: "Contact Us Page Form" }) }
           openWhatsApp(text); form.reset(); form.classList.remove('was-validated')
         }, !1)
       }
     })()
+
   </script>
   <script defer="defer" src="js/script.js"></script>
   <script id="loader-script">
