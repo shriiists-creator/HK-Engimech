@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highlightActiveLink();initHeaderBehavior();initMobileNavToggle();document.getElementById("currentYear").textContent=new Date().getFullYear()});initLeadCaptureModal()});function loadHeaderFooter(callback){document.getElementById("footer").innerHTML=`<div class="container">
-        <div class="footWrap defaultPadding">
+document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highlightActiveLink();initHeaderBehavior();initMobileNavToggle();document.getElementById("currentYear").textContent=new Date().getFullYear()});initLeadCaptureModal()});function loadHeaderFooter(callback){document.getElementById("footer").innerHTML=`<div class="container"><div class="footWrap defaultPadding">
           <div class="row">
             <!-- Company Info -->
             <div class="col-lg-auto col-sm-6 mb-4 mb-md-0 FooterAbout">
@@ -33,14 +32,13 @@ document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highligh
               </ul>
             </div>
             <div class="col-sm-6 col-lg-auto mb-4 mb-md-0 exploreLinks1">
-              <h5 class="fourthH ">Our Services</h5>
+              <h5 class="fourthH ">Our Products</h5>
               <ul> 
-                
-                
-                 <li><a href="WoodenPalletsAndBoxes.html" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Wooden Pallets &amp; Boxes</a></li>
-                 <li><a href="ShrinkWrappingServices.html" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Shrink Wrapping Services</a></li>
-                 <li><a href="CorrugatedPackaging.html" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Corrugated Packaging</a></li>
-               
+                 <li><a href="service-detail.html?service=industrial-packaging&sub=shrink-wrapping" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Industrial Packaging</a></li>
+                 <li><a href="service-detail.html?service=boxes&sub=wooden-box" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Boxes</a></li>
+                 <li><a href="service-detail.html?service=pallets&sub=4-way-pallet" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Pallets</a></li>
+                 <li><a href="service-detail.html?service=corrugated-packaging&sub=3-ply" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Corrugated Packaging</a></li>
+                 <li><a href="service-detail.html?service=additional-consumables&sub=packaging-consumables" class="footerLinks"><span class="iconify" data-icon="ic:twotone-arrow-circle-right"></span> Additional Consumables</a></li>
               </ul>
             </div>
             <div class="col-md-6 col-lg-auto mb-4 mb-md-0">
@@ -51,9 +49,8 @@ document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highligh
                     <span class="iconify" data-icon="fluent:location-12-filled"></span>
                     <A1-TF-25>
 <pre class="mb-0">
-FF/3 , J Tower, Aashray Residency,
-Oop. - Din dayal Upadhyay School,
-TP-13, Chhani Jakatnaka</pre>
+Plot No.80, Durga Industrial Estate.
+Sankarda, Vadodara, Gujarat</pre> 
                   </a>
                 </li>
                 <li>

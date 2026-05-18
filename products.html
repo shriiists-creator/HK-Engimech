@@ -231,7 +231,48 @@
          gap: 28px;
       }
 
-      /* Loader CSS */
+          @media (max-width: 991.98px) {
+      :root {
+        --nav-height: 103.69px;
+      }
+      .navLink {
+        color: var(--dark);
+        padding: 12px 8px;
+      }
+      .navLink.active {
+        color: var(--lightMain);
+      }
+      .navMenu {
+        gap: 4px;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: var(--primary);
+        flex-direction: column;
+        padding-top: 60px;
+      }
+      .navToggle {
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--primary);
+      }
+      .miniHeader {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .navToggle, .btn-nav-close {
+        display: none;
+      }
+    }
+
+    /* Loader CSS */
       #global-loader {
          position: fixed;
          top: 0;

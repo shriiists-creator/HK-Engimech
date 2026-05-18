@@ -193,6 +193,47 @@
       gap: 28px;
     }
 
+        @media (max-width: 991.98px) {
+      :root {
+        --nav-height: 103.69px;
+      }
+      .navLink {
+        color: var(--dark);
+        padding: 12px 8px;
+      }
+      .navLink.active {
+        color: var(--lightMain);
+      }
+      .navMenu {
+        gap: 4px;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: var(--primary);
+        flex-direction: column;
+        padding-top: 60px;
+      }
+      .navToggle {
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--primary);
+      }
+      .miniHeader {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .navToggle, .btn-nav-close {
+        display: none;
+      }
+    }
+
     /* Loader CSS */
     #global-loader {
       position: fixed;
@@ -948,8 +989,7 @@
                   <h6 class="fw-bold mb-1">Our Facility</h6>
                   <p class="mb-0 text-white-50 small">
                     <a class="text-white-50 text-decoration-none small" href="https://maps.app.goo.gl/L729ypQMV9yTa8vQ7"
-                      target="_blank">FF/3 , J Tower, Aashray Residency, Oop. - Din dayal Upadhyay School, TP-13, Chhani
-                      Jakatnaka</a>
+                      target="_blank">Plot No.80, Durga Industrial Estate. Sankarda, Vadodara, Gujarat</a>
                   </p>
                 </div>
               </div>
