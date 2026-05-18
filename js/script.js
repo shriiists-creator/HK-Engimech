@@ -109,7 +109,7 @@ TP-13, Chhani Jakatnaka</pre>
               <div class="inner">
                 <div class="border-top border-secondary pt-3 copyright text-center">
                 <p class="small mb-0 copyright">&copy; <span id="currentYear"></span> All Rights Are Reserved By HK Engimech. Design & Developed by <a href="https://shriiitrackingsolution.in/" target="_blank">
-                    <b>Shriii&nbsp;Tracking&nbsp;Solution</b></p>
+                    <b>Shriii&nbsp;Tracking&nbsp;Solution</b></p> 
                 </div>
               </div>
             </div>
