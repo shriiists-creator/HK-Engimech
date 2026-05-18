@@ -1,19 +1,4 @@
-// DOM Ready
-document.addEventListener("DOMContentLoaded", () => {
-  loadHeaderFooter(() => {
-    highlightActiveLink();
-    initHeaderBehavior();
-    initMobileNavToggle();
-    // Set Copyright Year
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
-  });
-  initLeadCaptureModal();
-});
-
-// Load Header and Footer
-function loadHeaderFooter(callback) {
-  document.getElementById("footer").innerHTML = `<div class="container">
+document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highlightActiveLink();initHeaderBehavior();initMobileNavToggle();document.getElementById("currentYear").textContent=new Date().getFullYear()});initLeadCaptureModal()});function loadHeaderFooter(callback){document.getElementById("footer").innerHTML=`<div class="container">
         <div class="footWrap defaultPadding">
           <div class="row">
             <!-- Company Info -->
@@ -115,10 +100,7 @@ TP-13, Chhani Jakatnaka</pre>
             </div>
           </div>
         </div>
-      </div>`; // Keep your current footer HTML here
-
-  document.getElementById("mainFabContainer").innerHTML =
-    `<div class="fab-container">
+      </div>`;document.getElementById("mainFabContainer").innerHTML=`<div class="fab-container">
       <a class="set-url-target" rel="noopener" data-mobile-target="" data-desktop-target="_blank" target="_blank" href="https://api.whatsapp.com/send?phone=917984899514">
         <svg xmlns="http://www.w3.org/2000/svg" width="59.54px" height="60px" viewBox="0 0 256 258">
           <defs>
@@ -142,260 +124,28 @@ TP-13, Chhani Jakatnaka</pre>
       <a rel="noopener" target="_blank" href="tel:+917984899514">
         <img style="height: 60px; width: 60px" src="images/phone-call.png" alt="phone icon" />
       </a>
-    </div>`;
-  callback?.();
-}
-
-// Highlight current page in navbar
-function highlightActiveLink() {
-  const current = (
-    window.location.pathname.split("/").pop() || "index.html"
-  ).split("?")[0];
-  document.querySelectorAll(".navLink").forEach((link) => {
-    const href = link.getAttribute("href")?.split("?")[0];
-    if (!href || href === "#") return;
-    if (href === current) {
-      link.classList.add("active");
-      link
-        .closest(".dropdownList")
-        ?.closest(".navLi")
-        ?.querySelector(".navLink")
-        ?.classList.add("active");
-    }
-  });
-}
-
-// Sticky Header on Scroll
-function initHeaderBehavior() {
-  const header = document.getElementById("main-header");
-  const belowContent = document.getElementById("headBelowContent");
-
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
-    const stickyStart = header.offsetTop + header.offsetHeight + 5;
-    const resetPoint = belowContent.offsetTop + belowContent.offsetHeight + 4;
-
-    if (scrollTop > stickyStart) {
-      header.classList.add("sticky-header", "visible");
-      header.classList.remove("headerAnimate");
-    } else if (scrollTop < resetPoint) {
-      header.classList.remove("sticky-header", "visible");
-      header.classList.add("headerAnimate");
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("load", handleScroll);
-}
-
-// Mobile Nav Toggle and Submenu
-function initMobileNavToggle() {
-  const toggleBtn = document.querySelector(".navToggle");
-  const navMenu = document.querySelector(".navMenu");
-  const closeBtn = document.querySelector(".btn-nav-close");
-
-  toggleBtn?.addEventListener("click", () =>
-    navMenu.classList.toggle("active"),
-  );
-  closeBtn?.addEventListener("click", () => navMenu.classList.remove("active"));
-
-  document.querySelectorAll(".toggleSub").forEach((toggle) => {
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      const submenu = toggle.closest(".navLi").querySelector(".dropdownList");
-
-      // Close all others
-      document.querySelectorAll(".dropdownList.open").forEach((menu) => {
-        if (menu !== submenu) menu.classList.remove("open");
-      });
-
-      submenu?.classList.toggle("open");
-    });
-  });
-}
-
-// WhatsApp URL Adjuster (Device-based Detection)
-(function () {
-  const WHATSAPP_NUMBER = "917984899514";
-  const DEFAULT_TEXT =
-    "Hi HK Engimech, I would like to inquire about your services.";
-
-  function isMobileDevice() {
-    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    );
-  }
-
-  function updateWhatsAppLink() {
-    const isMobile = isMobileDevice();
-    const baseUrl = isMobile
-      ? "https://api.whatsapp.com/send"
-      : "https://web.whatsapp.com/send";
-
-    document.querySelectorAll(".set-url-target").forEach((el, index) => {
-      // Add ID to every whatsapp message/button if not already present
-      if (!el.id) {
-        el.id = "whatsapp-btn-" + index;
-      }
-
-      let currentHref = el.getAttribute("href");
-      if (!currentHref || !currentHref.includes("whatsapp.com")) return;
-
-      try {
-        const urlObj = new URL(currentHref);
-        const params = new URLSearchParams(urlObj.search);
-
-        // Ensure phone is set
-        if (!params.has("phone")) {
-          params.set("phone", WHATSAPP_NUMBER);
-        }
-
-        // Add default text if none exists
-        if (!params.has("text") || params.get("text").trim() === "") {
-          params.set("text", DEFAULT_TEXT);
-        }
-
-        // Update link with correct base URL and preserved/default params
-        el.setAttribute("href", `${baseUrl}?${params.toString()}`);
-      } catch (e) {
-        console.error("Error updating WhatsApp link:", e);
-      }
-    });
-  }
-
-  // Run on load and resize
-  window.addEventListener("resize", updateWhatsAppLink);
-  window.addEventListener("load", updateWhatsAppLink);
-
-  // Also run immediately
-  updateWhatsAppLink();
-})();
-
-// ═══ MEGA MENU — Populate & Behavior ═══
-(function () {
-  "use strict";
-
-  const DATA_PATH = "data/services-data.json";
-
-  async function initMegaMenu() {
-    const gridEl = document.getElementById("megaMenuGrid");
-    const mobileEl = document.getElementById("megaMenuMobile");
-
-    // If no mega menu elements exist on this page, skip
-    if (!gridEl && !mobileEl) return;
-
-    try {
-      const res = await fetch(DATA_PATH);
-      if (!res.ok) return;
-      const data = await res.json();
-      if (!data.services) return;
-
-      // Build desktop mega-menu grid
-      if (gridEl) {
-        gridEl.innerHTML = data.services
-          .map(
-            (service) => `
+    </div>`;callback?.()}
+function highlightActiveLink(){const current=(window.location.pathname.split("/").pop()||"index.html").split("?")[0];document.querySelectorAll(".navLink").forEach((link)=>{const href=link.getAttribute("href")?.split("?")[0];if(!href||href==="#")return;if(href===current){link.classList.add("active");link.closest(".dropdownList")?.closest(".navLi")?.querySelector(".navLink")?.classList.add("active")}})}
+function initHeaderBehavior(){const header=document.getElementById("main-header");const belowContent=document.getElementById("headBelowContent");const handleScroll=()=>{const scrollTop=window.pageYOffset;const stickyStart=header.offsetTop+header.offsetHeight+5;const resetPoint=belowContent.offsetTop+belowContent.offsetHeight+4;if(scrollTop>stickyStart){header.classList.add("sticky-header","visible");header.classList.remove("headerAnimate")}else if(scrollTop<resetPoint){header.classList.remove("sticky-header","visible");header.classList.add("headerAnimate")}};window.addEventListener("scroll",handleScroll);window.addEventListener("load",handleScroll)}
+function initMobileNavToggle(){const toggleBtn=document.querySelector(".navToggle");const navMenu=document.querySelector(".navMenu");const closeBtn=document.querySelector(".btn-nav-close");toggleBtn?.addEventListener("click",()=>navMenu.classList.toggle("active"),);closeBtn?.addEventListener("click",()=>navMenu.classList.remove("active"));document.querySelectorAll(".toggleSub").forEach((toggle)=>{toggle.addEventListener("click",(e)=>{e.preventDefault();const submenu=toggle.closest(".navLi").querySelector(".dropdownList");document.querySelectorAll(".dropdownList.open").forEach((menu)=>{if(menu!==submenu)menu.classList.remove("open");});submenu?.classList.toggle("open")})})}(function(){const WHATSAPP_NUMBER="917984899514";const DEFAULT_TEXT="Hi HK Engimech, I would like to inquire about your services.";function isMobileDevice(){return/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent,)}
+function updateWhatsAppLink(){const isMobile=isMobileDevice();const baseUrl=isMobile?"https://api.whatsapp.com/send":"https://web.whatsapp.com/send";document.querySelectorAll(".set-url-target").forEach((el,index)=>{if(!el.id){el.id="whatsapp-btn-"+index}
+let currentHref=el.getAttribute("href");if(!currentHref||!currentHref.includes("whatsapp.com"))return;try{const urlObj=new URL(currentHref);const params=new URLSearchParams(urlObj.search);if(!params.has("phone")){params.set("phone",WHATSAPP_NUMBER)}
+if(!params.has("text")||params.get("text").trim()===""){params.set("text",DEFAULT_TEXT)}
+el.setAttribute("href",`${baseUrl}?${params.toString()}`)}catch(e){console.error("Error updating WhatsApp link:",e)}})}
+window.addEventListener("resize",updateWhatsAppLink);window.addEventListener("load",updateWhatsAppLink);updateWhatsAppLink()})();(function(){"use strict";const DATA_PATH="data/services-data.json";async function initMegaMenu(){const gridEl=document.getElementById("megaMenuGrid");const mobileEl=document.getElementById("megaMenuMobile");if(!gridEl&&!mobileEl)return;try{const res=await fetch(DATA_PATH);if(!res.ok)return;const data=await res.json();if(!data.services)return;if(gridEl){gridEl.innerHTML=data.services.map((service)=>`
           <a href="service-detail.html?service=${service.slug}" class="mega-service-card">
             <div class="mega-service-info">
               <h4>${service.name}</h4>
             </div>
           </a>
-        `,
-          )
-          .join("");
-      }
-
-      // Build mobile dropdown list
-      if (mobileEl) {
-        mobileEl.innerHTML = data.services
-          .map(
-            (service) => `
+        `,).join("")}
+if(mobileEl){mobileEl.innerHTML=data.services.map((service)=>`
           <li><a href="service-detail.html?service=${service.slug}">${service.name}</a></li>
-        `,
-          )
-          .join("");
-      }
-
-      // Re-init Iconify for the new icons
-      if (window.Iconify) {
-        setTimeout(() => Iconify.scan(), 200);
-      }
-    } catch (err) {
-      console.error("Mega menu load error:", err);
-    }
-  }
-
-  // Mobile toggle for mega-menu
-  function initMegaMenuToggle() {
-    const megaNavLi = document.querySelector(".navLi.has-mega-menu");
-    if (!megaNavLi) return;
-
-    const link = megaNavLi.querySelector("a.navLink");
-    const mobileList = megaNavLi.querySelector(".mega-dropdown-mobile");
-    const arrow = megaNavLi.querySelector(".mega-toggle-arrow");
-
-    if (link) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (window.innerWidth <= 991) {
-          // Mobile behavior: toggle mobile list
-          if (mobileList) {
-            mobileList.classList.toggle("open");
-            if (arrow) arrow.classList.toggle("rotated");
-          }
-        } else {
-          // Desktop behavior: toggle mega-open class for desktop dropdown
-          megaNavLi.classList.toggle("mega-open");
-        }
-      });
-    }
-
-    // Close desktop dropdown if clicking outside
-    document.addEventListener("click", function (e) {
-      if (window.innerWidth > 991) {
-        if (megaNavLi && !megaNavLi.contains(e.target)) {
-          megaNavLi.classList.remove("mega-open");
-        }
-      }
-    });
-  }
-
-  // Run
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initMegaMenu();
-      initMegaMenuToggle();
-    });
-  } else {
-    initMegaMenu();
-    initMegaMenuToggle();
-  }
-})();
-
-// ═══ LEAD CAPTURE SYSTEM ═══
-window.HK_GAS_URL =
-  "https://script.google.com/macros/s/AKfycbxHLMEYS-EAW7HrA5IJuwDNdOu6e1c0moTFicsPIWppqmUBbFyOstHauOaHgVj8nE-K/exec";
-
-window.submitToGoogleSheet = async function (payload) {
-  if (!window.HK_GAS_URL) return;
-  try {
-    await fetch(window.HK_GAS_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-  } catch (err) {
-    console.error("Error sending to GAS:", err);
-  }
-};
-
-function initLeadCaptureModal() {
-  // Inject Custom Modal HTML into DOM
-  const modalHtml = `
-  <style>
+        `,).join("")}
+if(window.Iconify){setTimeout(()=>Iconify.scan(),200)}}catch(err){console.error("Mega menu load error:",err)}}
+function initMegaMenuToggle(){const megaNavLi=document.querySelector(".navLi.has-mega-menu");if(!megaNavLi)return;const link=megaNavLi.querySelector("a.navLink");const mobileList=megaNavLi.querySelector(".mega-dropdown-mobile");const arrow=megaNavLi.querySelector(".mega-toggle-arrow");if(link){link.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();if(window.innerWidth<=991){if(mobileList){mobileList.classList.toggle("open");if(arrow)arrow.classList.toggle("rotated");}}else{megaNavLi.classList.toggle("mega-open")}})}
+document.addEventListener("click",function(e){if(window.innerWidth>991){if(megaNavLi&&!megaNavLi.contains(e.target)){megaNavLi.classList.remove("mega-open")}}})}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",()=>{initMegaMenu();initMegaMenuToggle()})}else{initMegaMenu();initMegaMenuToggle()}})();window.HK_GAS_URL="https://script.google.com/macros/s/AKfycbxHLMEYS-EAW7HrA5IJuwDNdOu6e1c0moTFicsPIWppqmUBbFyOstHauOaHgVj8nE-K/exec";window.submitToGoogleSheet=async function(payload){if(!window.HK_GAS_URL)return;try{await fetch(window.HK_GAS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),})}catch(err){console.error("Error sending to GAS:",err)}};function initLeadCaptureModal(){const modalHtml=`<style>
     @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
     .custom-modal-overlay {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -442,116 +192,7 @@ function initLeadCaptureModal() {
         </button>
       </form>
     </div>
-  </div>`;
-
-  document.body.insertAdjacentHTML("beforeend", modalHtml);
-
-  const modalOverlay = document.getElementById("leadCaptureModal");
-  const closeBtn = document.getElementById("leadModalClose");
-  const form = document.getElementById("leadCaptureForm");
-  const submitBtn = document.getElementById("leadSubmitBtn");
-
-  if (!modalOverlay) return;
-
-  function showModal() {
-    modalOverlay.style.display = "flex";
-  }
-
-  function hideModal() {
-    modalOverlay.style.display = "none";
-  }
-
-  closeBtn.addEventListener("click", hideModal);
-  modalOverlay.addEventListener("click", function (e) {
-    if (e.target === modalOverlay) hideModal();
-  });
-
-  // State to hold current lead context
-  let currentLeadContext = {};
-
-  // Event Delegation for Trigger Buttons (Capture Phase)
-  document.addEventListener(
-    "click",
-    function (e) {
-      const btn = e.target.closest(".btn-quick-order, .svc-enquiry-btn");
-      if (!btn) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Extract context based on button type
-      if (btn.classList.contains("btn-quick-order")) {
-        currentLeadContext = {
-          formType: "Products Enquiry",
-          source: "Home",
-          mainProduct: "-",
-          subProduct: btn.getAttribute("data-item") || "-",
-          mainService: "-",
-          productNameForWa: btn.getAttribute("data-item") || "your products",
-        };
-      } else if (btn.classList.contains("svc-enquiry-btn")) {
-        currentLeadContext = {
-          formType: "Products Enquiry",
-          source: "Service-Details",
-          mainProduct: btn.getAttribute("data-main-product") || "-",
-          subProduct: btn.getAttribute("data-sub-product") || "-",
-          mainService: btn.getAttribute("data-main-service") || "-",
-          productNameForWa:
-            btn.getAttribute("data-main-product") || "your service",
-        };
-      }
-
-      // Reset form and show modal
-      form.reset();
-      showModal();
-    },
-    true,
-  );
-
-  // Handle Form Submission
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("leadName").value.trim();
-    const mobile = document.getElementById("leadMobile").value.trim();
-
-    if (!name || !mobile) return;
-
-    const payload = {
-      ...currentLeadContext,
-      name: name,
-      mobile: mobile,
-    };
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML =
-      '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
-
-    try {
-      await window.submitToGoogleSheet(payload);
-
-      // Hide Modal
-      hideModal();
-
-      // Trigger WhatsApp Open
-      const waNumber = "917984899514";
-      const waMsg = `Hi HK Engimech, my name is ${name}. I would like to inquire about ${payload.productNameForWa}.`;
-      const isMobileDevice =
-        /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent,
-        );
-      const waBaseUrl = isMobileDevice
-        ? "https://api.whatsapp.com/send"
-        : "https://web.whatsapp.com/send";
-      const finalWaUrl = `${waBaseUrl}?phone=${waNumber}&text=${encodeURIComponent(waMsg)}`;
-
-      window.open(finalWaUrl, "_blank");
-    } catch (err) {
-      console.error("Error submitting lead:", err);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = "Submit & Proceed to WhatsApp";
-    }
-  });
-}
+  </div>`;document.body.insertAdjacentHTML("beforeend",modalHtml);const modalOverlay=document.getElementById("leadCaptureModal");const closeBtn=document.getElementById("leadModalClose");const form=document.getElementById("leadCaptureForm");const submitBtn=document.getElementById("leadSubmitBtn");if(!modalOverlay)return;function showModal(){modalOverlay.style.display="flex"}
+function hideModal(){modalOverlay.style.display="none"}
+closeBtn.addEventListener("click",hideModal);modalOverlay.addEventListener("click",function(e){if(e.target===modalOverlay)hideModal();});let currentLeadContext={};document.addEventListener("click",function(e){const btn=e.target.closest(".btn-quick-order, .svc-enquiry-btn");if(!btn)return;e.preventDefault();e.stopPropagation();if(btn.classList.contains("btn-quick-order")){currentLeadContext={formType:"Products Enquiry",source:"Home",mainProduct:"-",subProduct:btn.getAttribute("data-item")||"-",mainService:"-",productNameForWa:btn.getAttribute("data-item")||"your products",}}else if(btn.classList.contains("svc-enquiry-btn")){currentLeadContext={formType:"Products Enquiry",source:"Service-Details",mainProduct:btn.getAttribute("data-main-product")||"-",subProduct:btn.getAttribute("data-sub-product")||"-",mainService:btn.getAttribute("data-main-service")||"-",productNameForWa:btn.getAttribute("data-main-product")||"your service",}}
+form.reset();showModal()},!0,);form.addEventListener("submit",async function(e){e.preventDefault();const name=document.getElementById("leadName").value.trim();const mobile=document.getElementById("leadMobile").value.trim();if(!name||!mobile)return;const payload={...currentLeadContext,name:name,mobile:mobile,};submitBtn.disabled=!0;submitBtn.innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';try{await window.submitToGoogleSheet(payload);hideModal();const waNumber="917984899514";const waMsg=`Hi HK Engimech, my name is ${name}. I would like to inquire about ${payload.productNameForWa}.`;const isMobileDevice=/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent,);const waBaseUrl=isMobileDevice?"https://api.whatsapp.com/send":"https://web.whatsapp.com/send";const finalWaUrl=`${waBaseUrl}?phone=${waNumber}&text=${encodeURIComponent(waMsg)}`;window.open(finalWaUrl,"_blank")}catch(err){console.error("Error submitting lead:",err);alert("Something went wrong. Please try again.")}finally{submitBtn.disabled=!1;submitBtn.innerHTML="Submit & Proceed to WhatsApp"}})}
