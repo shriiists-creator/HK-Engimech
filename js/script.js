@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",()=>{loadHeaderFooter(()=>{highligh
               <h5 class="fourthH ">Contact Us</h5>
               <ul class="contact-info">
                 <li>
-                  <a class="locationLink footerLinks" target="_blank" href="https://maps.app.goo.gl/L729ypQMV9yTa8vQ7">
+                  <a class="locationLink footerLinks" target="_blank" href="https://maps.app.goo.gl/XZ3a6Rgkopri92wH9">
                     <span class="iconify" data-icon="fluent:location-12-filled"></span>
                     <A1-TF-25>
 <pre class="mb-0">
